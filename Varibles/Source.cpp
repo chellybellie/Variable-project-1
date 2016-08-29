@@ -59,11 +59,10 @@ int main()
 	int i = 0;
 	float f = 0;
 	char ch = 'a';
-	std: :cin >> i >> ch >> f;
-std: : count << "i: " << "\nch: " << ch << "/nf: " << f << std : : endl;
-
-	getchar();
-	getchar();
+	scanf_s("%i %c %f", &i, &ch, 1, &f);
+	getchar(); // clear hanging new line
+	printf("%i %c %f", i, ch, f);
+	getchar(); //pause the program
 
 
 
