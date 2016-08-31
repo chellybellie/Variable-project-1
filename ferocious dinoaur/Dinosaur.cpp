@@ -1,17 +1,6 @@
+#include "Dinosaur.h"
 #include <iostream>
 
-
-struct Dinosaur
-{
-	char name[80];
-	int health;
-	char size[80];
-	int claws;
-	int teeth;
-	int agressive;
-	int gentle;
-
-};
 Dinosaur CreateChar()
 {
 	Dinosaur one;
@@ -21,14 +10,14 @@ Dinosaur CreateChar()
 	scanf_s("%s", one.name, 80);
 	getchar();
 
-	printf("please select %s's size comparison \n", one.name);
+	printf("please select %s's size comparison (object) \n", one.name);
 	scanf_s("%s", one.size, 80);
 	getchar();
 
 	printf("please input how much teeth %s's has \n", one.name);
 	scanf_s("%d", &one.teeth);
 	getchar();
-	
+
 	printf("please input how many claws your dinosaur has here \n");
 	scanf_s("%d", &one.claws);
 	getchar();
@@ -42,10 +31,11 @@ Dinosaur CreateChar()
 	getchar();
 
 	return one;
-	
+
 }
 
-void printchar(Dinosaur one)
+//const: user can not change any info
+void printchar(const Dinosaur &one)
 {
 	printf("\n \n Your Dinosaur name is %s \n", one.name);
 	printf("with the Agressive rating of: %d \n", one.agressive);
@@ -60,7 +50,7 @@ void printchar(Dinosaur one)
 		system("pause");
 
 	}
-	else 
+	else
 	{
 		printf("BadAss!. Lets do this!\n \n");
 	}
@@ -73,32 +63,9 @@ void modifychar(Dinosaur &one)
 		one.teeth += 47;
 		one.claws += 12;
 
-	int tswap = one.gentle;
-	one.gentle = one.agressive;
-	one.agressive = tswap;
-	}
-	
-}
-
-void main()
-{
-
-	Dinosaur one;
-	one.health = 100;
-	printf(" Create Account \n");
-
-	one = CreateChar();
-
-	getchar();
-
-	printf("Congratulations You have created your Awesome Dinosaur! \n");
-	printchar(one);
-
-	if (one.gentle > one.agressive)
-	{
-		modifychar(one);
-		printchar(one);
+		int tswap = one.gentle;
+		one.gentle = one.agressive;
+		one.agressive = tswap;
 	}
 
-	getchar();
 }
